@@ -18,7 +18,17 @@ the playlist** and also the **song's length**.
 
 # Setup
 
-## <a id=step-1>Step 1: create a spotify developer account and app</a>
+## Step 1: Installing dependencies
+
+For compiling the code, you'll need GCC or Clang (version 12 or higher). You'll
+also need libcurl and it's header files. Usually they both come with the
+__curl__ package, but the headers might come separately in some __libcurl-dev__
+package of sorts depending on your package manager. After installing libcurl,
+make sure the `curl.h` header is accessible by the compiler, it'll probably be
+in the `/usr/include/curl/` directory.
+
+
+## <a id=step-2>Step 2: create a spotify developer account and app</a>
 
 To access your account's playlists automatically, you first need to create a
 spotify developer account at spotify's [developer
@@ -49,12 +59,9 @@ plain text file, this _id_ and _secret_ are only used for this random app that
 you created and have nothing to do with your actual spotify account secrets,
 like your password.
 
-## Step 2: compile the code
+## Step 3: compile the code
 
-To generate the executable file you'll first need a compiler. Either Clang or
-GCC should do. You'll also need to install the __libcurl__ library and it's
-headers if your system doesn't already have that. After having all setted up
-enter the project's folder through the command line and execute the `build.sh`
+Enter the project's folder through the command line and execute the `build.sh`
 script with
 
 ```
@@ -64,7 +71,7 @@ $ sh build.sh
 If the compilation worked, you should now see the executable `myspotifypl`
 inside the project's folder. If a gigantic, heinous multiple paged error
 message appeared as you executed the script, your `config.c` might not be well
-formatted and you should go revisit [Step 1](#step-1) of the setup process to
+formatted and you should go revisit [Step 2](#step-2) of the setup process to
 make sure you typed everything correctly inside `config.c`.
 
 To test if the executable is working, call
@@ -104,7 +111,7 @@ The link that shows up after you call the program changes depending on your
 After getting the link, access it through your web browser. If it's your first
 time doing this, you'll be redirected to a page asking for your spotify
 credentials for authentication so you can connect to that app created in [Step
-1](#step-1) of the setup phase. This one is a delicate step, as you'll be
+1](#step-2) of the setup phase. This one is a delicate step, as you'll be
 giving away your password, so to make sure I'm not messing with you check the
 current URL of this credentials page to make sure it is really a spotify-owned
 domain.
